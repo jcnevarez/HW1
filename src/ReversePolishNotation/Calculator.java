@@ -365,7 +365,7 @@ public class Calculator
 		
 		//Print greeting message and read in the first line
 		System.out.println("Please enter infix equation");
-		inString = in.readLine();              // 
+		inString = in.readLine();
 		// Continue to loop until we see quit
 		while(!inString.equals("quit"))
 		{
@@ -426,11 +426,13 @@ class InfixToPostFixException extends Exception
 	// Serial Version UID needed for all Exceptions
 	private static final long serialVersionUID = -7409246565024385689L;
 
+	// Base Constructor
 	public InfixToPostFixException()
 	{
 		super();
 	}
 	
+	// Constructor with error message to report. 
 	public InfixToPostFixException(String message)
 	{
 		super(message);
