@@ -336,7 +336,6 @@ public class Calculator
 		} /* End while loop */
 		
 		// If there is more than 1 item then there is an error in the infix notation
-		//if (eval.size() > 1 || eval.size() == 0)
 		if(eval.size() != 1)
 		{
 			throw new CalculateInfixException(ERROR_STRING + "Missing extra operator");
@@ -364,10 +363,9 @@ public class Calculator
 		Calculator myCalculator = new Calculator();
 		String     inString		= "";
 		
-		//Print greetings message
+		//Print greeting message and read in the first line
 		System.out.println("Please enter infix equation");
-		inString = in.readLine();              // Read in the next line
-		
+		inString = in.readLine();
 		// Continue to loop until we see quit
 		while(!inString.equals("quit"))
 		{
@@ -376,15 +374,17 @@ public class Calculator
 				myCalculator.queueInfix(inString); // Take the string and put in a queue
 				myCalculator.infixToPostfix();     // Change from infix to postfix
 				myCalculator.calculateInfix();     // Calculate the postfix equation
-			} catch (QueueInfixException | InfixToPostFixException | CalculateInfixException ex) 
+			} 
+			catch (QueueInfixException | InfixToPostFixException | CalculateInfixException ex) 
 			{
 				System.out.println(ex.getMessage());
 			}
 
-			//Print greetings message
+			//Print greeting message and read in next line
 			System.out.println("Please enter infix equation");
-			inString = in.readLine();          // Read in the next line
+			inString = in.readLine();
 		} /* End while case */
+		
 		System.out.println("Thank you for using our RPN Calculator");
 	} /* End main function */
 } /* End Class Calculator */
@@ -393,11 +393,12 @@ public class Calculator
 /* Class Name: QueueInfixException                         */
 /*                                                         */
 /* Description: Allows the ability to throw an exception   */
-/*              for invalid infix notation when queueing.  */
+/*              for invalid infix notation when queuing.   */
 /*                                                         */
 /*---------------------------------------------------------*/
 class QueueInfixException extends Exception 
 {
+	// Serial Version UID needed for all Exceptions
 	private static final long serialVersionUID = -2187605233053881530L;
 
 	// Base Constructor 
@@ -422,13 +423,16 @@ class QueueInfixException extends Exception
 /*---------------------------------------------------------*/
 class InfixToPostFixException extends Exception 
 {
+	// Serial Version UID needed for all Exceptions
 	private static final long serialVersionUID = -7409246565024385689L;
 
+	// Base Constructor
 	public InfixToPostFixException()
 	{
 		super();
 	}
 	
+	// Constructor with error message to report. 
 	public InfixToPostFixException(String message)
 	{
 		super(message);
@@ -445,6 +449,7 @@ class InfixToPostFixException extends Exception
 /*---------------------------------------------------------*/
 class CalculateInfixException extends Exception 
 {
+	// Serial Version UID needed for all Exceptions
 	private static final long serialVersionUID = 1197091565551803975L;
 	
 	// Base Constructor 
