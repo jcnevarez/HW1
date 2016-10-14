@@ -413,7 +413,6 @@ class QueueInfixException extends Exception
 	}
 } /* End Class QueueInfixException */
 
-
 /*---------------------------------------------------------*/
 /* Function Name: InfixToPostFixException                  */
 /*                                                         */
