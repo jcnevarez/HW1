@@ -77,7 +77,7 @@ public class Calculator
 				digit = decode.substring(i, i+3);
 				if(!digit.equals("POW"))
 				{
-					throw new QueueInfixException(ERROR_STRING);
+					throw new QueueInfixException(ERROR_STRING + "Unknown Operator " + digit);
 				}
 				infixQ.offer(digit);
 				digit = "";
@@ -93,7 +93,7 @@ public class Calculator
 			// Check to filter out spaces if not then we have encountered an error throw exception. 
 			else if(ch != ' ')
 			{
-				throw new QueueInfixException(ERROR_STRING);
+				throw new QueueInfixException(ERROR_STRING + "Unknown Operator " + Character.toString(ch));
 			}
 		} /* End For loop */
 	} /* End queueInfix function */
@@ -142,7 +142,7 @@ public class Calculator
 				
 				if (opStack.isEmpty())
 				{
-					throw new InfixToPostFixException(ERROR_STRING);
+					throw new InfixToPostFixException(ERROR_STRING + "Missing left parenthesis '('");
 				}
 				//Discard left parenthesis
 				opStack.pop();
@@ -282,7 +282,7 @@ public class Calculator
 				// If not then throw exception. 
 				if(eval.size() < 2)
 				{
-					throw new CalculateInfixException(ERROR_STRING);
+					throw new CalculateInfixException(ERROR_STRING + "Unable to pop 2 operands from stack");
 				}
 				
 				// Pop the last two numbers. 
@@ -338,7 +338,7 @@ public class Calculator
 		// If there is more than 1 item then there is an error in the infix notation
 		if(eval.size() != 1)
 		{
-			throw new CalculateInfixException(ERROR_STRING);
+			throw new CalculateInfixException(ERROR_STRING + "Missing extra operator");
 		}
 		
 		// Print postfix notation to the user if there are no errors. 
@@ -377,7 +377,7 @@ public class Calculator
 			} 
 			catch (QueueInfixException | InfixToPostFixException | CalculateInfixException ex) 
 			{
-				System.out.print(ex.getMessage());
+				System.out.println(ex.getMessage());
 			}
 
 			//Print greeting message and read in next line
