@@ -413,6 +413,14 @@ class QueueInfixException extends Exception
 	}
 } /* End Class QueueInfixException */
 
+
+/*---------------------------------------------------------*/
+/* Function Name: InfixToPostFixException                  */
+/*                                                         */
+/* Description: Allows the ability to throw an exception   */
+/*              for invalid infix to postfix translation.  */
+/*                                                         */
+/*---------------------------------------------------------*/
 class InfixToPostFixException extends Exception 
 {
 	private static final long serialVersionUID = -7409246565024385689L;
